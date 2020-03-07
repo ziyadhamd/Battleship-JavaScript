@@ -44,17 +44,18 @@ var hitCount = 0;
    0 = empty, 1 = part of a ship, 2 = a sunken part of a ship, 3 = a missed shot
 */
 var gameBoard = [
-				[0,0,0,1,1,1,1,0,0,0],
-				[0,0,0,0,0,0,0,0,0,0],
-				[0,0,0,0,0,0,0,0,0,0],
+				[1,1,1,1,0,1,0,1,0,0],
+				[0,0,1,0,0,1,0,1,0,0],
+				[0,1,0,0,0,1,1,1,0,0],
+				[1,1,1,1,0,0,0,1,0,0],
 				[0,0,0,0,0,0,1,0,0,0],
-				[0,0,0,0,0,0,1,0,0,0],
-				[1,0,0,0,0,0,1,1,1,1],
-				[1,0,0,0,0,0,0,0,0,0],
-				[1,0,0,1,0,0,0,0,0,0],
-				[1,0,0,1,0,0,0,0,0,0],
-				[1,0,0,0,0,0,0,0,0,0]
+				[0,0,0,0,0,1,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0],
+				[0,1,0,0,0,0,1,1,1,0],
+				[1,0,1,0,0,0,1,0,0,1],
+				[0,1,0,1,1,0,1,1,1,0]
 				]
+
 
 // set event listener for all elements in gameboard, run fireTorpedo function when square is clicked
 gameBoardContainer.addEventListener("click", fireTorpedo, false);
@@ -70,13 +71,13 @@ function fireTorpedo(e) {
 				
 		// if player clicks a square with no ship, change the color and change square's value
 		if (gameBoard[row][col] == 0) {
-			e.target.style.background = '#bbb';
+			e.target.style.background = '#000000';
 			// set this square's value to 3 to indicate that they fired and missed
 			gameBoard[row][col] = 3;
 			
 		// if player clicks a square with a ship, change the color and change square's value
 		} else if (gameBoard[row][col] == 1) {
-			e.target.style.background = 'red';
+			e.target.style.background = '#008BFF';
 			// set this square's value to 2 to indicate the ship has been hit
 			gameBoard[row][col] = 2;
 			
